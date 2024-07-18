@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class SettingUI : MonoBehaviour
 {
     [SerializeField]
-    private Button mouseControlButton;
+    private Button mouseControlButton; // 마우스로 조작 버튼
 
     [SerializeField]
-    private Button keyboardMouseControlButton;
-    private Animator animator;
+    private Button keyboardMouseControlButton; // 마우스+키보드로 조작 버튼
+    private Animator animator; 
 
     private void Awake()
     {
@@ -21,13 +21,13 @@ public class SettingUI : MonoBehaviour
 
     private void OnEnable()
     {
-        switch (PlayerSettings.controlType)
+        switch (PlayerSettings.controlType) // 플레이어 셋팅에서 컨트롤 타입이 뭐로 설정되어 있는지
         {
-            case EControlType.Mouse:
+            case EControlType.Mouse: // 만약에 마우스로 설정되어 있으면 마우스 버튼쪽 색상변경
                 mouseControlButton.image.color = Color.green;
                 keyboardMouseControlButton.image.color = Color.white;
                 break;
-            case EControlType.KeyboardMouse:
+            case EControlType.KeyboardMouse: // 만약에 마우스+키보드로 설정되어 있으면 마우스+키보드 버튼쪽 색상변경
                 mouseControlButton.image.color = Color.white;
                 keyboardMouseControlButton.image.color = Color.green;
                 break;
